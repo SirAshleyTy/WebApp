@@ -1,0 +1,33 @@
+<html>
+ <body>
+    <meta charset="utf-8">
+    <title>Switch Activity</title>
+    <script language="javascript" type="text/javascript">
+   <!--
+   		var counter = 0;
+      function answer() {
+        while (true) {
+          var guess = prompt("What's your guess? ");
+          if (guess == "orange") {
+            alert("Correct");
+            window.location="game2.html";
+            return false;
+          }
+          else { counter++ ;
+            alert("Wrong answer");
+            if (counter == 3) {
+            	alert("Gamer Over"); 
+            	return false;
+            }else{
+            		return true;}
+
+          }
+        }
+      }
+      //-->
+    </script>
+  <h2>What is this</h2>
+<img src="Game1.jpg" alt="Question1">
+<button type="button" onclick="answer()">Click answer</button>
+  </body>
+</html>
