@@ -1,0 +1,103 @@
+<html>
+<head>
+<title> My Traffic Light </title>
+	<style>
+		#container2{
+			width:60px;
+			height:180px;
+			border-style: solid ;
+			background:black;
+
+			margin:10px;
+			border-width: 1px;
+			border-color: black;
+		}
+
+		#circle1 {
+			width: 50px;
+			height: 50px; 
+			border-radius: 25px;
+			background: red;
+			margin:5px;
+		}
+		#circle2 {
+			width: 50px;
+			height: 50px;
+			margin:5px;
+			border-radius: 25px;
+			background: black;
+		}
+		#circle3 {
+			width: 50px;
+			height: 50px;
+			margin:5px;
+			border-radius: 25px;
+			background: black;
+		}
+	</style>
+
+	<script> 
+		var timer = null;
+
+		function toggle(){
+
+			if(timer != null){
+
+				clearInterval(timer);
+
+				timer = null;
+
+				document.getElementById('circle1').style.backgroundColor='red';
+				document.getElementById('circle2').style.backgroundColor='black';
+				document.getElementById('circle3').style.backgroundColor='black';
+			}else{
+
+				trafficOne();
+			}
+		}
+
+		 function trafficOne() {
+
+			document.getElementById('circle1').style.backgroundColor='red';
+			document.getElementById('circle2').style.backgroundColor='black';
+			document.getElementById('circle3').style.backgroundColor='black';
+			timer = window.setTimeout(trafficTwo, 5000);
+		}
+
+		 function trafficTwo() {
+
+			document.getElementById('circle1').style.backgroundColor='black'
+			document.getElementById('circle2').style.backgroundColor='black'
+			document.getElementById('circle3').style.backgroundColor='green'
+			timer = window.setTimeout(trafficThree, 10000);
+		}
+		function trafficThree() {
+
+			document.getElementById('circle1').style.backgroundColor='black'
+			document.getElementById('circle2').style.backgroundColor='yellow'
+			document.getElementById('circle3').style.backgroundColor='black'
+
+
+			timer = window.setTimeout(trafficFour, 3000);
+		}
+
+		function trafficFour() {
+			document.getElementById('circle1').style.backgroundColor='red'
+			document.getElementById('circle2').style.backgroundColor='black'
+			document.getElementById('circle3').style.backgroundColor='black'
+
+			timer = window.setTimeout(trafficOne, 3000);
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<button id ="change" onClick="toggle()" > Click to Start</button>
+		<div id="container2">
+			<div id="circle1"></div>
+			<div id="circle2"></div>
+			<div id="circle3"></div>
+		</div>
+	</div>
+</body>
+</html>
